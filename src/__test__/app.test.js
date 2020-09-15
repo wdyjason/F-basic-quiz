@@ -1,5 +1,6 @@
 import { processUserData, processEduData } from "../app";
 import getEduItem from "../compoent/educationItem";
+import { validatePath } from "../utils/urlTools";
 
 jest.mock("../utils/http.js", () => {
   return jest.fn().mockResolvedValue([]);
@@ -20,5 +21,16 @@ describe("education item", () => {
     const input = { year: 2077, title: "test", description: "des" };
     const expectVal = `<li><div class="edu-year"><h2>2077</h2></div><div class="edu-detial"><h2>test</h2><p>des</p></div></li>`;
     expect(getEduItem(input)).toBe(expectVal);
+  });
+});
+
+describe("validate url", () => {
+  test("should validate url success", () => {
+    const input = "/users/1";
+    expect(validatePath(input)).toBeTruthy();
+  });
+  test("should validate url fail", () => {
+    const input = "/user/1";
+    expect(validatePath(input)).toBeFalsy();
   });
 });

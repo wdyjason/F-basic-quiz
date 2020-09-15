@@ -2,13 +2,12 @@ import "./style/index.scss";
 import $ from "jquery";
 import fetchData from "./utils/http";
 import getEduItem from "./compoent/educationItem";
+import { validatePath, parsePath } from "./utils/urlTools";
 
-const REQUEST_USER_URL = "http://localhost:8080/users/1";
+const BASE_URL = "http://localhost:8080/users/";
 
-const REQUEST_EDU_URL = "http://localhost:8080/users/1/educations";
-
-async function processUserData() {
-  const userData = await fetchData(REQUEST_USER_URL);
+async function processUserData(pathVar) {
+  const userData = await fetchData(BASE_URL + pathVar);
   const { name, age, avatar, description } = userData;
   $(".avatar-img").attr("src", avatar);
   $(".user-name").html(name);
@@ -16,15 +15,21 @@ async function processUserData() {
   $(".aboutme-area").append(`<p class="about-me-content">${description}</p>`);
   return userData;
 }
-async function processEduData() {
-  const eduData = await fetchData(REQUEST_EDU_URL);
+async function processEduData(pathVar) {
+  const eduData = await fetchData(`${BASE_URL + pathVar}/educations`);
 
   eduData.forEach((item) => {
     $(".edu-list").append(getEduItem(item));
   });
   return eduData;
 }
-processUserData();
-processEduData();
+
+const path = window.location.pathname;
+
+if (validatePath(path)) {
+  const pathVal = parsePath(path);
+  processUserData(pathVal);
+  processEduData(pathVal);
+}
 
 export { processUserData, processEduData };
