@@ -1,5 +1,5 @@
 const getEduItem = (eduData) => {
-  return `<li><div class="edu-year"><h2>${eduData.year}</h2></div><div class="edu-detial"><h2>${eduData.title}</h2><p>${eduData.description}</p></div></li>`;
+  return `<li class="edu-item"><div class="edu-year"><h3>${eduData.year}</h3></div><div class="edu-detial"><h3>${eduData.title}</h3><p>${eduData.description}</p></div></li>`;
 };
 
 export default getEduItem;

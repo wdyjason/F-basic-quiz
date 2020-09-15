@@ -1,3 +1,61 @@
 @import "variables";
 @import "mixins";
 @import "reboot";
+
+.main {
+  width: 1000px;
+  margin: 0 auto;
+  @include flexLayout(column);
+  background-color: $gray-light;
+  padding: 20px;
+  margin-top: 120px;
+}
+.avatar-area {
+  @include flexLayout(column);
+  align-items: center;
+}
+.avatar-hello {
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+.avatar-img {
+  @include avatar();
+  position: absolute;
+  transform: translateY(-70px);
+}
+.avatar-brief {
+  @include topAndBottomMargin();
+}
+.hr {
+  @include topAndBottomMargin();
+  background-color: $body-bg;
+  border-bottom: none;
+  width: 100%;
+}
+
+.aboutme-title {
+  @include topAndBottomMargin();
+  color: $primary-color;
+}
+
+.edu-title {
+  @extend .aboutme-title;
+}
+
+.edu-item {
+  @include flexLayout(row);
+  justify-content: space-between;
+  @include topAndBottomMargin();
+  .edu-detial {
+    width: 800px;
+    background-color: $gray-light;
+    border: solid $gray-light;
+  }
+
+  .edu-year {
+    h3 {
+      font-weight: lighter;
+    }
+  }
+}

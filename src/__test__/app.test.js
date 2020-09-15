@@ -19,7 +19,7 @@ describe("user education data", () => {
 describe("education item", () => {
   test("should get user education item success", () => {
     const input = { year: 2077, title: "test", description: "des" };
-    const expectVal = `<li><div class="edu-year"><h2>2077</h2></div><div class="edu-detial"><h2>test</h2><p>des</p></div></li>`;
+    const expectVal = `<li class="edu-item"><div class="edu-year"><h3>2077</h3></div><div class="edu-detial"><h3>test</h3><p>des</p></div></li>`;
     expect(getEduItem(input)).toBe(expectVal);
   });
 });

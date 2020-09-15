@@ -1,0 +1,15 @@
+@mixin avatar {
+  border-radius: 50%;
+  width: $image-size;
+  height: $image-size;
+}
+
+@mixin flexLayout($direction) {
+  display: flex;
+  flex-direction: $direction;
+}
+
+@mixin topAndBottomMargin() {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
