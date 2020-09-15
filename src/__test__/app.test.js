@@ -1,3 +1,10 @@
-test("add 1+1 is 2", () => {
-  expect(2).toBe(2);
+import processUserData from "../app";
+
+jest.mock("../utils/http.js", () => {
+  return jest.fn().mockResolvedValue({});
+});
+describe("user basic data", () => {
+  test("should get user data success", async () => {
+    await expect(processUserData()).resolves.toEqual({});
+  });
 });
