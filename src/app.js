@@ -22,8 +22,9 @@ async function processEduData() {
   eduData.forEach((item) => {
     $(".edu-list").append(getEduItem(item));
   });
+  return eduData;
 }
 processUserData();
 processEduData();
 
-export default processUserData;
+export { processUserData, processEduData };
