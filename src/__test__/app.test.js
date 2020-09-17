@@ -19,6 +19,7 @@ describe("user education data", () => {
 describe("education item", () => {
   test("should get user education item success", () => {
     const input = { year: 2077, title: "test", description: "des" };
+    // TODO feedback:测DOM里面显示的数据就可以了
     const expectVal = `<li class="edu-item"><div class="edu-year"><h3>2077</h3></div><div class="edu-detial"><h3>test</h3><p>des</p></div></li>`;
     expect(getEduItem(input)).toBe(expectVal);
   });

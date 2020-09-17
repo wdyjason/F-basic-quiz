@@ -6,6 +6,7 @@ import { validatePath, parsePath } from "./utils/urlTools";
 
 const BASE_URL = "http://localhost:8080/users/";
 
+// TODO feedback：可以将渲染逻辑和获取api数据的逻辑分开
 async function processUserData(pathVar) {
   const userData = await fetchData(BASE_URL + pathVar);
   const { name, age, avatar, description } = userData;
